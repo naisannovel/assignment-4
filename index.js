@@ -102,14 +102,17 @@ document.getElementById('book-now-btn').addEventListener('click', function () {
 
     // bonus section confirmation success/sorry message.
 
+    function successMessageText(text,textColor){
+        let successMessage = document.getElementById('bonus-confirmation-text');
+        successMessage.innerText = text;
+        successMessage.style.color = textColor;
+    }
+
     if (firstClassSeatQuantityValue > 0 || economyClassSeatQuantityValue > 0) {
-        let successMessage = document.getElementById('bonus-confirmation-text');
-        successMessage.innerText = `success`;
-        successMessage.style.color = 'green';
-    } else {
-        let successMessage = document.getElementById('bonus-confirmation-text');
-        successMessage.innerText = `sorry!`;
-        successMessage.style.color = 'red';
+        successMessageText('success','green');
+    } 
+    else {
+        successMessageText('sorry!','red');
     };
 
     // subTotal, vat, total value passed in bonus section; 
