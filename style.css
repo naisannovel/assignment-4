@@ -126,3 +126,26 @@ nav ul li a:hover, a.active{
     display: flex;
     justify-content: space-between;
 }
+
+
+/* extra section */
+.bdr{
+    border: 2px solid crimson;
+}
+#success-message{
+    font-size: 80px;
+}
+#extra-section{
+    display: none;
+    text-align: center;
+    margin-top: 100px;
+}
+.box{
+    margin: auto;
+    width: 600px;
+    background-color: white;
+    border-radius: 15px;
+}
+#sub-total-align{
+    text-align: right;
+}

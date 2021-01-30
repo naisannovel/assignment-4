@@ -77,27 +77,45 @@ function totalCost(firstTicketQuantityInputId, economyTicketQuantityInputId){
 
 document.getElementById('book-now-btn').addEventListener('click',function(){
     document.getElementById('main-content').style.display = 'none';
+    document.getElementById('extra-section').style.display = 'block';
     document.getElementById('background').style.backgroundAttachment = 'fixed';
 
     let firstClassSeat = document.getElementById('f-class-inp').value;
     let economyClassSeat = document.getElementById('economy-input').value;
 
-    console.log(firstClassSeat);
-    console.log(economyClassSeat);
     if(firstClassSeat == 0 && economyClassSeat == 0){
-       let x = document.getElementById('naisan');
-       x.innerText = `you don't buy any seat`
+       let x = document.getElementById('extra-quantity-show');
+       x.innerText = `you did not book any seat`;
     }
     else if(firstClassSeat > 0 && economyClassSeat == 0){
-        let x = document.getElementById('naisan');
-       x.innerText = `you buy only first class ${firstClassSeat} seat`
+        let x = document.getElementById('extra-quantity-show');
+       x.innerText = `you booked only first class ${firstClassSeat} seat`
     }
     else if(firstClassSeat == 0 && economyClassSeat > 0){
-        let x = document.getElementById('naisan');
-       x.innerText = `you buy only economy ${economyClassSeat} seat`
+        let x = document.getElementById('extra-quantity-show');
+       x.innerText = `you booked only economy ${economyClassSeat} seat`
     }
     else{
-        let x = document.getElementById('naisan');
-       x.innerText = `you buy ${firstClassSeat} first class seat and ${economyClassSeat} economy seat`
+        let x = document.getElementById('extra-quantity-show');
+       x.innerText = `you booked ${firstClassSeat} first class and ${economyClassSeat} economy seat`
     }
+    if(firstClassSeat > 0 || economyClassSeat > 0){
+        let mno = document.getElementById('success-message');
+        mno.innerText = `success`;
+        mno.style.color ='green';
+    }
+    else{
+        let mno = document.getElementById('success-message');
+        mno.innerText = `sorry!`;
+        mno.style.color ='red';
+    }
+
+    let exsubttl = document.getElementById('subtotal').innerText;
+    document.getElementById('extra-subtotal').innerText = exsubttl;
+
+    let vat2 = document.getElementById('vat').innerText;
+    document.getElementById('extra-vat').innerText = vat2;
+
+    let total2 = document.getElementById('total').innerText;
+    document.getElementById('extra-total').innerText = total2;
 })
